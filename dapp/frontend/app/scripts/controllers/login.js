@@ -23,14 +23,14 @@ angular.module('EscrowRajApp')
           valid: null
         };
 
-      var checkForNullValues = function (model) {
-          if (model.value.trim() === '') {
-              model.valid = false;
-          } else {
-              model.valid = true;
-          }
-          return model.valid;
-      };
+        var checkForNullValues = function (model) {
+            if (model.value.trim() === '') {
+                model.valid = false;
+            } else {
+                model.valid = true;
+            }
+            return model.valid;
+        };
 
         $scope.authenticate = function () {
             if(!checkForNullValues($scope.email)) {
@@ -47,6 +47,5 @@ angular.module('EscrowRajApp')
               loginpass: $scope.password.value,
               address: $scope.address.value
             });
-
         };
   }]);
