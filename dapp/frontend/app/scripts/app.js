@@ -29,7 +29,10 @@ angular
       .when('/buyer', {
         templateUrl: 'views/buyer.html',
         controller: 'BuyerCtrl',
-        controllerAs: 'buyer'
+        controllerAs: 'buyer',
+        access: {
+          requiresLogin: true
+        }
       })
       .when('/seller', {
         templateUrl: 'views/seller.html',

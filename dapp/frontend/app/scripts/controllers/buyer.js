@@ -9,9 +9,4 @@
  */
 angular.module('EscrowRajApp')
   .controller('BuyerCtrl', function () {
-    this.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
   });
