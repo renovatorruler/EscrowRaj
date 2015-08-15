@@ -119,7 +119,7 @@ $template_blue: #4A90E2;
         & > li > a {
             color: white;
             &:hover {
-                color: $template_blue;
+                color: shade(white, 10%);
             }
         }
     }

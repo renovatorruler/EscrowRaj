@@ -34,7 +34,7 @@ angular.module('EscrowRajApp')
         return model.valid;
     };
 
-    $scope.generateWallet = function () {
+    $scope.signup = function () {
         var user = {
             email: '',
             loginpass: ''
