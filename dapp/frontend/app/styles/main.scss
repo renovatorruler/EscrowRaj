@@ -89,3 +89,30 @@ body {
     border-bottom: 0;
   }
 }
+
+.header {
+    border-bottom: 0px;
+}
+
+$template_blue: #4A90E2;
+
+.navbar-default {
+    background-color: $template_blue;
+    font-size: 16px;
+    font-family: 'Lato', sans-serif;
+    .navbar-brand {
+        color: white;
+    }
+    .navbar-nav {
+        & > .active > a {
+            background-color: white;
+            color: $template_blue;
+        }
+        & > li > a {
+            color: white;
+            &:hover {
+                color: $template_blue;
+            }
+        }
+    }
+}
