@@ -1,3 +1,4 @@
+
 var gulp = require('gulp');
 var gutil = require('gulp-util');
 var bloc = require('blockapps-js');
@@ -6,6 +7,7 @@ var watch = require('gulp-watch');
 var conf = require('./package.json');
 var path = require('path');
 var fs = require('fs');
+var safeMkdir = require('safe-mkdir').mkdir
 
 var blocConf = conf.bloc;
 
@@ -27,8 +29,13 @@ function compileSol (file) {
 }
 
 gulp.task('default', function(cb){
-	gulp.src('./dapp/contracts/**/*.sol')
-		.pipe(plumber())
-		.pipe(watch('./dapp/contracts/**/*.sol', compileSol))
-		.on('end', cb);
+	safeMkdir(blocConf.metaDest, function(err){
+		if(err) {
+			console.warn(err);
+		}
+		gulp.src('./dapp/contracts/**/*.sol')
+			.pipe(plumber())
+			.pipe(watch('./dapp/contracts/**/*.sol', compileSol))
+			.on('end', cb);
+	});
 });
