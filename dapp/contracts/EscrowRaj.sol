@@ -3,8 +3,8 @@ contract EscrowRaj {
     Seller seller;
     uint value;
     bool locked;
-    address arbitrator
-    uint timeout
+    address arbitrator;
+    uint timeout;
 
     struct Buyer {
         address account;
@@ -28,7 +28,7 @@ contract EscrowRaj {
         }
     }
 
-    function deposit{
+    function deposit(){
         if (this.balance > value){
             locked = true;
             timeout = block.number + (5 * 24 * 60 * 4);
@@ -64,14 +64,12 @@ contract EscrowRaj {
             seller.choice = arb;
         }
 
-        if (buyer.choice = seller.choice){
+        if (buyer.choice == seller.choice){
             arbitrator = buyer.choice;
         }
     }
 
-    function arbAddress(bytes64 pubKey){
-        return sha3(pubKey) << 96;
-    }
+
 
     function judge(bool fulfilled){ //True means contract was fulfilled, money released to seller
         if (msg.sender == arbitrator && locked){
