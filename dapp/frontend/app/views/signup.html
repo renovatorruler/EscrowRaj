@@ -1,9 +1,15 @@
 <h1>Signup</h1>
 <form class="form-horizontal">
-    <div class="form-group">
+    <div class="form-group" ng-class="{'has-error': email.valid === false}">
         <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
         <div class="col-sm-10">
-            <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+            <input type="email" class="form-control" id="inputEmail3" placeholder="Email" ng-model="email.value">
+        </div>
+    </div>
+    <div class="form-group" ng-class="{'has-error': loginPassword.valid === false}">
+        <label for="loginPassword" class="col-sm-2 control-label">Password</label>
+        <div class="col-sm-10">
+            <input type="password" class="form-control" ng-model="loginPassword.value" id="loginPassword" placeholder="Password for authentication">
         </div>
     </div>
     <div class="form-group">
@@ -14,10 +20,10 @@
             <label for="randomSeed">Randomly generate a seed for me</label>
         </div>
     </div>
-    <div class="form-group" ng-class="{'has-error': emptyPassword}">
-        <label for="encryptionPassword" class="col-sm-2 control-label">Password</label>
+    <div class="form-group" ng-class="{'has-error': encPassword.valid === false}">
+        <label for="encryptionPassword" class="col-sm-2 control-label">Encryption Password</label>
         <div class="col-sm-10">
-            <input type="password" class="form-control" ng-model="password" id="encryptionPassword" placeholder="Password">
+            <input type="password" class="form-control" ng-model="encPassword.value" id="encryptionPassword" placeholder="Password to encrypt your key">
         </div>
     </div>
     <div class="form-group">
