@@ -2,16 +2,12 @@
 
 /**
  * @ngdoc function
- * @name web2App.controller:SellerCtrl
+ * @name EscrowRajApp.controller:SellerCtrl
  * @description
  * # SellerCtrl
- * Controller of the web2App
+ * Controller of the EscrowRajApp
  */
-angular.module('web2App')
+angular.module('EscrowRajApp')
   .controller('SellerCtrl', function () {
-    this.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+      
   });

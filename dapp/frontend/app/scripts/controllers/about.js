@@ -2,12 +2,12 @@
 
 /**
  * @ngdoc function
- * @name web2App.controller:AboutCtrl
+ * @name EscrowRajApp.controller:AboutCtrl
  * @description
  * # AboutCtrl
- * Controller of the web2App
+ * Controller of the EscrowRajApp
  */
-angular.module('web2App')
+angular.module('EscrowRajApp')
   .controller('AboutCtrl', function () {
     this.awesomeThings = [
       'HTML5 Boilerplate',

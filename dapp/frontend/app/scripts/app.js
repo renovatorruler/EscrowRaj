@@ -2,14 +2,14 @@
 
 /**
  * @ngdoc overview
- * @name web2App
+ * @name EscrowRajApp
  * @description
- * # web2App
+ * # EscrowRajApp
  *
  * Main module of the application.
  */
 angular
-  .module('web2App', [
+  .module('EscrowRajApp', [
     'ngRoute',
     'ngSanitize',
     'ngTouch'

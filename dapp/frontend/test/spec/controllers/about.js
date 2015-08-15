@@ -3,7 +3,7 @@
 describe('Controller: AboutCtrl', function () {
 
   // load the controller's module
-  beforeEach(module('web2App'));
+  beforeEach(module('EscrowRajApp'));
 
   var AboutCtrl,
     scope;
