@@ -2,7 +2,7 @@ contract EscrowRaj {
     Buyer buyer;
     Seller seller;
     uint value;
-    bool locked;
+    bool public locked;
     address arbitrator;
     uint timeout;
 
@@ -16,8 +16,8 @@ contract EscrowRaj {
         address choice;
     }
 
-    function EscrowRaj(uint myvalue) {
-        buyer.account = msg.sender;
+    function EscrowRaj(uint myvalue, address buyerAddr) {
+        buyer.account = buyerAddr;
         value = myvalue;
         locked = false;
     }
@@ -31,7 +31,7 @@ contract EscrowRaj {
     function deposit(){
         if (this.balance > value){
             locked = true;
-            timeout = block.number + (5 * 24 * 60 * 4);
+            timeout = block.number + (5 * 24 * 60 * 4); //Default timeout time of 5 days
         }
     }
 
@@ -79,5 +79,18 @@ contract EscrowRaj {
                 buyer.account.send(this.balance);
             }
         }
+    }
+
+    function (){ //fallback function
+        if (this.balance > value){
+                locked = true;
+                timeout = block.number + (5 * 24 * 60 * 4); //Default timeout time of 5 days
+        }
+    }
+}
+
+contract EscrowCreator {
+    function createEscrow(uint value) returns (address escrowAddress){
+        return address(new EscrowRaj(value, msg.sender));
     }
 }
