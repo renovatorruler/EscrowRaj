@@ -8,17 +8,28 @@
  * Controller of the EscrowRajApp
  */
 angular.module('EscrowRajApp')
-.controller('SignupCtrl', function ($scope) {
+.controller('SignupCtrl', ['$scope', 'auth', function ($scope, auth) {
     var keystore;
+    $scope.email = '';
     $scope.seed = '';
     $scope.password = '';
     $scope.address = '';
+
     $scope.generateWallet = function () {
-        if($scope.seed === '' && $scope.randomizeSeedOption) {
+        if ($scope.seed === '' && $scope.randomizeSeedOption) {
             $scope.seed = ethlightjs.keystore.generateRandomSeed();
         }
+        if ($scope.password.trim() === '') {
+            $scope.emptyPassword = true;
+            return;
+        } else {
+            $scope.emptyPassword = false;
+        }
+
         keystore = new ethlightjs.keystore($scope.seed, $scope.password);
         $scope.address = keystore.generateNewAddress($scope.password);
+
+        auth.register(keystore);
     };
 
     $scope.randomizeSeed = function () {
@@ -28,4 +39,4 @@ angular.module('EscrowRajApp')
             $scope.seed = '';
         }
     };
-  });
+  }]);

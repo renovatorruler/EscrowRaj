@@ -22,14 +22,17 @@ angular.module('EscrowRajApp')
       return $http.get(apiEndpoint + '/query/account?address=' + userObj.address)
     };
 
-    this.register = function(user, keyStore) {
-      return $http.post(apiEndpoint + '/eth/v1.0/wallet', {
-        email: user.email,
-        loginpass: user.password,
-        address: keyStore.addresses[0],
-        enckey: keystore.serialize()
-      });
-    }
+    this.register = function(keyStore) {
+        submitUser({
+            email: '',
+            loginpass: '',
+            app: window.appName,
+            address: keyStore.addresses[0],
+            enckey: keyStore.serialize()
+        }, function(response){
+            console.log(response);
+        });
+    };
 
     this.loadAccountInfo = function() {};
 
