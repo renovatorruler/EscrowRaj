@@ -18,9 +18,7 @@ angular.module('EscrowRajApp')
       return !!this.user;
     };
 
-    this.authenticate = function (address){
-      return $http.get(apiEndpoint + '/query/account?address=' + userObj.address)
-    };
+    this.authenticate = function (address){};
 
     this.register = function(user, keyStore) {
         submitUser({
@@ -37,6 +35,7 @@ angular.module('EscrowRajApp')
 
     this.login = function (user) {
         retrieveUser({
+            app: window.appName,
             email: user.email,
             loginpass: user.loginpass,
             address: user.address,
