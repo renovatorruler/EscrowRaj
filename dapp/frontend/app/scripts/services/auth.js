@@ -8,7 +8,7 @@
  * Service in the EscrowRajApp.
  */
 angular.module('EscrowRajApp')
-  .service('auth', ['$http', function ($http) {
+  .service('auth', ['$http', '$q', '$rootScope', function ($http, $q, $rootScope) {
     var apiEndpoint = window.apiURL;
     var ethlightjs = window.ethlightjs;
 
@@ -36,6 +36,7 @@ angular.module('EscrowRajApp')
 
 
     this.login = function (user) {
+        var deferred = $q.defer();
         retrieveUser({
             app: window.appName,
             email: user.email,
@@ -43,7 +44,10 @@ angular.module('EscrowRajApp')
             address: user.address,
         }, (function(response){
             this.user = response;
+            $rootScope.$broadcast('user:authenticated');
+            deferred.resolve(response);
         }).bind(this));
+        return deferred.promise;
     };
 
     this.loadAccountInfo = function() {};

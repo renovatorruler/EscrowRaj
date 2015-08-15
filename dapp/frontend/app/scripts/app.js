@@ -56,10 +56,18 @@ angular
   })
   .run(['$rootScope','$location', 'auth', function($rootScope, $location, auth){
     $rootScope.$on('$routeChangeStart', function(event, next) {
-      if(next.access && next.access.requiresLogin) {
-        if (!auth.isAuthenticated()) {
-          $location.path('/login');
+        if(next.access && next.access.requiresLogin) {
+            if (!auth.isAuthenticated()) {
+                $rootScope.preLoginLocation = $location.path();
+                $location.path('/login');
+            }
         }
-      }
+    });
+    $rootScope.$on('user:authenticated', function (event) {
+        if(!$rootScope.preLoginLocation) {
+            $rootScope.preLoginLocation = '/';
+        }
+        $location.path('/seller');
+        $rootScope.$apply();
     });
   }]);
