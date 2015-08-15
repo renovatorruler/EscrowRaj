@@ -45,7 +45,7 @@ angular.module('EscrowRajApp')
             auth.login({
               email: $scope.email.value,
               loginpass: $scope.password.value,
-              address: $scope.address
+              address: $scope.address.value
             });
 
         };
