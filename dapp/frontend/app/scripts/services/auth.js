@@ -18,6 +18,10 @@ angular.module('EscrowRajApp')
       return !!this.user;
     };
 
+    this.getUser = function () {
+        return this.user;
+    };
+
     this.register = function(user, keyStore) {
         submitUser({
             email: user.email,
@@ -25,9 +29,9 @@ angular.module('EscrowRajApp')
             app: window.appName,
             address: user.address,
             enckey: keyStore.serialize()
-        }, function(response){
-            console.log(response);
-        });
+        }, (function(response){
+            this.user = response;
+        }).bind(this));
     };
 
 
@@ -37,9 +41,9 @@ angular.module('EscrowRajApp')
             email: user.email,
             loginpass: user.loginpass,
             address: user.address,
-        }, function(response){
-            console.log(response);
-        });
+        }, (function(response){
+            this.user = response;
+        }).bind(this));
     };
 
     this.loadAccountInfo = function() {};
