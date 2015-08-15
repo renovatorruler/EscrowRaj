@@ -28,6 +28,10 @@ module.exports = function(config) {
       'bower_components/angular-route/angular-route.js',
       'bower_components/angular-sanitize/angular-sanitize.js',
       'bower_components/angular-touch/angular-touch.js',
+      'bower_components/bignumber.js/bignumber.js',
+      'bower_components/crypto-js/index.js',
+      'bower_components/web3/dist/web3.js',
+      'bower_components/web3/dist/web3.min.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
       "app/scripts/**/*.js",
