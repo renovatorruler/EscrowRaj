@@ -11,8 +11,8 @@ angular.module('EscrowRajApp')
   .service('auth', ['$http', '$q', '$rootScope', function ($http, $q, $rootScope) {
     var apiEndpoint = window.apiURL;
     var ethlightjs = window.ethlightjs;
-
-    this.user = sessionStorage.getItem('user');
+    var localSession = sessionStorage.getItem('user');
+    this.user = localSession ? ethlightjs.keystore.deserialize(localSession) : '';
     $rootScope.authenticated = this.user;
 
     this.isAuthenticated = function(){
@@ -45,7 +45,7 @@ angular.module('EscrowRajApp')
             address: user.address,
         }, (function(response){
             this.user = response;
-            sessionStorage.setItem('user', this.user);
+            sessionStorage.setItem('user', this.user.serialize());
             $rootScope.$broadcast('user:authenticated');
             deferred.resolve(response);
         }).bind(this));

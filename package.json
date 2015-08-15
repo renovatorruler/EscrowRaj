@@ -49,7 +49,7 @@
   "bloc": {
     "appName": "EscrowRaj",
     "apiURL": "http://hacknet.blockapps.net",
-    "metaDest": "./dapp/frontend/contracts",
+    "metaDest": "./dapp/frontend/app/contracts",
     "developer": "team5",
     "email": "shiakaufman+bloc@gmail.com"
   }
