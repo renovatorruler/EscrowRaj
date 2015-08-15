@@ -8,6 +8,18 @@
  * Service in the escrowRajApp.
  */
 angular.module('EscrowRajApp')
-  .service('auth', function () {
+  .service('auth', ['$location', function ($location) {
     // AngularJS will instantiate a singleton by calling "new" on this function
-  });
+    this.user = null;
+
+    this.isAuthenticated = function(){
+      return !!this.user;
+    };
+
+    this.ensureAuthenticated = function(){
+      if(!this.user) {
+        $location.path( "/login" );
+      }
+    };
+
+  }]);
