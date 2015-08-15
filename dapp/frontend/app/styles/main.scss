@@ -2,10 +2,11 @@
 @import "susy/sass/_susy.scss";
 // endbower
 
+$template_blue: #4A90E2;
+
 @import "signup";
 @import "login";
-
-$template_blue: #4A90E2;
+@import "materialize_override";
 
 .browsehappy {
     margin: 0.2em 0;
