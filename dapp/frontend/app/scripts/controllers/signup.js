@@ -7,7 +7,7 @@
  * # SignupCtrl
  * Controller of the escrowRajApp
  */
-angular.module('escrowRajApp')
+angular.module('EscrowRajApp')
   .controller('SignupCtrl', function ($scope) {
     $scope.awesomeThings = [
       'HTML5 Boilerplate',
