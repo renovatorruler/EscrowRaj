@@ -88,9 +88,3 @@ contract EscrowRaj {
         }
     }
 }
-
-contract EscrowCreator {
-    function createEscrow(uint value) returns (address escrowAddress){
-        return address(new EscrowRaj(value, msg.sender));
-    }
-}
