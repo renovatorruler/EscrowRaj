@@ -8,7 +8,7 @@
  * Controller of the EscrowRajApp
  */
 angular.module('EscrowRajApp')
-  .controller('LoginCtrl', function ($scope) {
+  .controller('LoginCtrl', ['$scope', 'auth', function ($scope, auth) {
         //Intialize $scope
         $scope.email = {
             value: '',
@@ -17,6 +17,10 @@ angular.module('EscrowRajApp')
         $scope.password = {
             value: '',
             valid: null
+        };
+        $scope.address = {
+          value: '',
+          valid: null
         };
 
       var checkForNullValues = function (model) {
@@ -35,5 +39,14 @@ angular.module('EscrowRajApp')
             if(!checkForNullValues($scope.password)) {
                 return;
             }
+            if(!checkForNullValues($scope.address)) {
+              return;
+            }
+            auth.login({
+              email: $scope.email.value,
+              loginpass: $scope.password.value,
+              address: $scope.address
+            });
+
         };
-  });
+  }]);
