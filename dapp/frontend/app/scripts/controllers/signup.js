@@ -14,13 +14,18 @@ angular.module('EscrowRajApp')
     $scope.password = '';
     $scope.address = '';
     $scope.generateWallet = function () {
-        if($scope.seed === '') {
+        if($scope.seed === '' && $scope.randomizeSeedOption) {
             $scope.seed = ethlightjs.keystore.generateRandomSeed();
         }
         keystore = new ethlightjs.keystore($scope.seed, $scope.password);
         $scope.address = keystore.generateNewAddress($scope.password);
-      };
+    };
 
-      var init = function () {
-      };
+    $scope.randomizeSeed = function () {
+        if($scope.randomizeSeedOption) {
+            $scope.seed = ethlightjs.keystore.generateRandomSeed();
+        } else {
+            $scope.seed = '';
+        }
+    };
   });
