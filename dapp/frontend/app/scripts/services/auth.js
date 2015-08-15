@@ -34,6 +34,17 @@ angular.module('EscrowRajApp')
         });
     };
 
+
+    this.login = function (user) {
+        retrieveUser({
+            email: user.email,
+            loginpass: user.loginpass,
+            address: user.address,
+        }, function(response){
+            console.log(response);
+        })
+    }
+
     this.loadAccountInfo = function() {};
 
   }]);
