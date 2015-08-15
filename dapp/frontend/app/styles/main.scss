@@ -4,6 +4,8 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 @import "susy/sass/_susy.scss";
 // endbower
 
+@import "signup";
+
 .browsehappy {
     margin: 0.2em 0;
     background: #ccc;
@@ -39,8 +41,6 @@ body {
 }
 
 .container {
-    // Establish an 80em container
-    @include container(80em);
 }
 
 
@@ -127,4 +127,9 @@ $template_blue: #4A90E2;
     .login-link, .signup-link {
         float: right;
     }
+}
+
+[ng-view] {
+    // Establish an 80em container
+    @include container(80em);
 }
