@@ -51,8 +51,8 @@
               <li class="active"><a href="#/">Home</a></li>
               <li><a ng-href="#/seller">Seller</a></li>
               <li><a ng-href="#/buyer">Buyer</a></li>
-              <li class="login-link"><a ng-href="#/login">Login</a></li>
-              <li class="signup-link"><a ng-href="#/signup">Signup</a></li>
+              <li class="login-link" ng-hide="authenticated"><a ng-href="#/login">Login</a></li>
+              <li class="signup-link" ng-hide="authenticated"><a ng-href="#/signup">Signup</a></li>
             </ul>
 
           </div>

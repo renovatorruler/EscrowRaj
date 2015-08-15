@@ -13,6 +13,7 @@ angular.module('EscrowRajApp')
     var ethlightjs = window.ethlightjs;
 
     this.user = sessionStorage.getItem('user');
+    $rootScope.authenticated = this.user;
 
     this.isAuthenticated = function(){
       return !!this.user;
