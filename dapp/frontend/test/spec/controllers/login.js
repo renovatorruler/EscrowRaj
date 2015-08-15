@@ -3,7 +3,7 @@
 describe('Controller: LoginCtrl', function () {
 
   // load the controller's module
-  beforeEach(module('escrowRajApp'));
+  beforeEach(module('EscrowRajApp'));
 
   var LoginCtrl,
     scope;
@@ -15,8 +15,4 @@ describe('Controller: LoginCtrl', function () {
       $scope: scope
     });
   }));
-
-  it('should attach a list of awesomeThings to the scope', function () {
-    expect(scope.awesomeThings.length).toBe(3);
-  });
 });

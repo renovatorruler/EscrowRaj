@@ -2,10 +2,10 @@
 
 /**
  * @ngdoc service
- * @name escrowRajApp.auth
+ * @name EscrowRajApp.auth
  * @description
  * # auth
- * Service in the escrowRajApp.
+ * Service in the EscrowRajApp.
  */
 angular.module('EscrowRajApp')
   .service('auth', ['$location', function ($location) {

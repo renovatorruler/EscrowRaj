@@ -2,10 +2,10 @@
 
 /**
  * @ngdoc function
- * @name escrowRajApp.controller:SignupCtrl
+ * @name EscrowRajApp.controller:SignupCtrl
  * @description
  * # SignupCtrl
- * Controller of the escrowRajApp
+ * Controller of the EscrowRajApp
  */
 angular.module('EscrowRajApp')
   .controller('SignupCtrl', function ($scope) {
