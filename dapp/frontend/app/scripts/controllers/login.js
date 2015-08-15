@@ -27,4 +27,13 @@ angular.module('EscrowRajApp')
           }
           return model.valid;
       };
+
+        $scope.authenticate = function () {
+            if(!checkForNullValues($scope.email)) {
+                return;
+            }
+            if(!checkForNullValues($scope.password)) {
+                return;
+            }
+        };
   });

@@ -41,8 +41,8 @@ angular.module('EscrowRajApp')
             address: user.address,
         }, function(response){
             console.log(response);
-        })
-    }
+        });
+    };
 
     this.loadAccountInfo = function() {};
 
