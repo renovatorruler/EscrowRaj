@@ -9,5 +9,6 @@
  */
 angular.module('EscrowRajApp')
   .controller('SellerCtrl', function () {
-      
+      $scope.sendContract = function () {
+      };
   });
