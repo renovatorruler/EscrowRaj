@@ -1,4 +1,5 @@
 .signup {
+    @include span(6 of 12);
     .signup-header {
         background: #F9F9F9;
     }
