@@ -2,20 +2,20 @@
     <form class="col s12">
         <div class="row">
             <div class="input-field col s12">
-                <input id="seller" type="text" class="validate">
-                <label for="seller">Seller's Address</label>
+                <input id="seller" type="text" class="validate" ng-model="sellerAddress">
+                <label for="seller" ng-class="{'active': sellerAddress}">Seller's Address</label>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s12">
-                <input id="amount" type="text" class="validate">
-                <label for="amount">Amount (in ETH)</label>
+                <input id="amount" type="text" class="validate" ng-model="etherAmount">
+                <label for="amount" ng-class="{'active': etherAmount}">Amount (in ETH)</label>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s12">
-                <textarea id="details" class="materialize-textarea"></textarea>
-                <label for="details">Memo</label>
+                <textarea id="details" class="materialize-textarea" ng-model="memo"></textarea>
+                <label for="details" ng-class="{'active': memo}">Memo</label>
             </div>
         </div>
         <div class="row">
