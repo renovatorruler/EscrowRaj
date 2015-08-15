@@ -12,7 +12,7 @@ angular.module('EscrowRajApp')
     var apiEndpoint = window.apiURL;
     var ethlightjs = window.ethlightjs;
 
-    this.user = null;
+    this.user = sessionStorage.getItem('user');
 
     this.isAuthenticated = function(){
       return !!this.user;
@@ -44,6 +44,7 @@ angular.module('EscrowRajApp')
             address: user.address,
         }, (function(response){
             this.user = response;
+            sessionStorage.setItem('user', this.user);
             $rootScope.$broadcast('user:authenticated');
             deferred.resolve(response);
         }).bind(this));
