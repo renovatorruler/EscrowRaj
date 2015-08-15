@@ -1,47 +1,20 @@
-<form class="signup" action='' method="POST">
-    <header id="legend" class="signup-header">
-        <h1 class="">Register</h1>
-    </header>
-    <fieldset>
-        <div class="control-group">
-            <label class="control-label"  for="seed">Seed</label>
-            <div class="controls">
-                <input type="text" id="seed" name="seed" placeholder="" class="input-xlarge">
-                <p class="help-block">Seed must contain one of the predetermined seed</p>
-            </div>
+<h1>Signup</h1>
+<form class="form-horizontal">
+    <div class="form-group">
+        <label for="seed" class="col-sm-2 control-label">Seed</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" ng-model="seed" id="seed" placeholder="12 word seed">
         </div>
-
-        <div class="control-group">
-            <label class="control-label" for="password">Password</label>
-            <div class="controls">
-                <input type="text" id="password" name="password" placeholder="" class="input-xlarge">
-                <p class="help-block">Please provide a password to encrypt your key</p>
-            </div>
+    </div>
+    <div class="form-group">
+        <label for="encryptionPassword" class="col-sm-2 control-label">Password</label>
+        <div class="col-sm-10">
+            <input type="password" class="form-control" id="encryptionPassword" placeholder="Password">
         </div>
-
-        <div class="control-group">
-            <!-- Password-->
-            <label class="control-label" for="password">Password</label>
-            <div class="controls">
-                <input type="password" id="password" name="password" placeholder="" class="input-xlarge">
-                <p class="help-block">Password should be at least 4 characters</p>
-            </div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" class="btn btn-default" ng-click="generateWallet()">Generate</button>
         </div>
-
-        <div class="control-group">
-            <!-- Password -->
-            <label class="control-label"  for="password_confirm">Password (Confirm)</label>
-            <div class="controls">
-                <input type="password" id="password_confirm" name="password_confirm" placeholder="" class="input-xlarge">
-                <p class="help-block">Please confirm password</p>
-            </div>
-        </div>
-
-        <div class="control-group">
-            <!-- Button -->
-            <div class="controls">
-                <button class="btn btn-success">Register</button>
-            </div>
-        </div>
-    </fieldset>
+    </div>
 </form>

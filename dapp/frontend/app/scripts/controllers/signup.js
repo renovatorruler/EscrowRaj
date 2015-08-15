@@ -9,9 +9,8 @@
  */
 angular.module('EscrowRajApp')
   .controller('SignupCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+      $scope.seed = '';
+      $scope.generateWallet = function () {
+          $scope.seed = 'hello world';
+      };
   });
