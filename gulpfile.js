@@ -19,7 +19,10 @@ function compileSol (file) {
 			gutil.warn('error compiling ', filename);
 		}
 		var dest = path.normalize(path.join(blocConf.metaDest, filePath.name + '.json'));
-		fs.writeFileSync(dest, JSON.stringify(compiledCode));
+		fs.writeFileSync(dest, JSON.stringify({
+                    "vmCode" : compiledCode.vmCode,
+                    "symtab" : compiledCode.symtab
+                }));
 	});
 }
 
