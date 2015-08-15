@@ -47,7 +47,7 @@
     "serve": "cd ./dapp/frontend && grunt serve"
   },
   "bloc": {
-    "appName": "required!!!",
+    "appName": "EscrowRaj",
     "apiURL": "http://hacknet.blockapps.net",
     "metaDest": "./dapp/frontend/contracts",
     "developer": "team5",
