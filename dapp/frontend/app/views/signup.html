@@ -1,40 +1,44 @@
 <h2 class="header">Signup</h2>
-<form class="form-horizontal">
-    <div class="form-group" ng-class="{'has-error': email.valid === false}">
-        <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
-        <div class="col-sm-10">
-            <input type="email" class="form-control" id="inputEmail3" placeholder="Email" ng-model="email.value">
+<div class="row">
+    <form class="col s12">
+        <div class="row">
+            <div class="input-field col s12" ng-class="{'has-error': email.valid === false}">
+                <input type="email" class="validate" id="email" ng-model="email.value">
+                <label for="email">Email</label>
+            </div>
         </div>
-    </div>
-    <div class="form-group" ng-class="{'has-error': loginPassword.valid === false}">
-        <label for="loginPassword" class="col-sm-2 control-label">Password</label>
-        <div class="col-sm-10">
-            <input type="password" class="form-control" ng-model="loginPassword.value" id="loginPassword" placeholder="Password for authentication">
+        <div class="row">
+            <div class="input-field col s12" ng-class="{'has-error': loginPassword.valid === false}">
+                <input type="password" class="validate" ng-model="loginPassword.value" id="loginPassword">
+                <label for="loginPassword">Password for authentication</label>
+            </div>
         </div>
-    </div>
-    <div class="form-group">
-        <label for="seed" class="col-sm-2 control-label">Seed</label>
-        <div class="col-sm-10">
-            <input type="text" class="form-control" ng-model="seed" id="seed" placeholder="12 word seed">
-            <input type="checkbox" id="randomSeed" value="option1" aria-label="..." ng-model="randomizeSeedOption" ng-change="randomizeSeed()">
-            <label for="randomSeed">Randomly generate a seed for me</label>
+        <div class="row">
+            <div class="input-field col s8">
+                <input type="text" class="validate" value="" ng-model="seed" id="seed">
+                <label for="seed" ng-class="{'active': seed}">12 word seed</label>
+            </div>
+            <div class="input-field col s4">
+                <input type="checkbox" id="randomSeed" value="option1" aria-label="..." ng-model="randomizeSeedOption" ng-change="randomizeSeed()">
+                <label for="randomSeed">Randomly generate</label>
+            </div>
         </div>
-    </div>
-    <div class="form-group" ng-class="{'has-error': encPassword.valid === false}">
-        <label for="encryptionPassword" class="col-sm-2 control-label">Encryption Password</label>
-        <div class="col-sm-10">
-            <input type="password" class="form-control" ng-model="encPassword.value" id="encryptionPassword" placeholder="Password to encrypt your key">
+        <div class="row">
+            <div class="input-field col s12" ng-class="{'has-error': encPassword.valid === false}">
+                <input type="password" class="validate" ng-model="encPassword.value" id="encryptionPassword">
+                <label for="encryptionPassword">Encryption Password</label>
+            </div>
         </div>
-    </div>
-    <div class="form-group">
-        <label for="address" class="col-sm-2 control-label">Address</label>
-        <div class="col-sm-10">
-            <span class="form-control-static" id="address">{{address}}</span>
+        <div class="row">
+            <div class="input-field col s12">
+                <input disabled type="text" id="address" class="value" ng-model="{{address}}" ng-show="address">
+                <label for="address" class="active">Address</label>
+            </div>
         </div>
-    </div>
-    <div class="form-group">
-        <div class="col-sm-offset-2 col-sm-10">
-            <button type="submit" class="btn btn-default" ng-click="signup()">Signup</button>
+        <div class="row">
+            <div class="input-field col s12">
+                <button type="submit" class="btn btn-default" ng-click="signup()">Signup</button>
+            </div>
         </div>
-    </div>
-</form>
+    </form>
+</div>

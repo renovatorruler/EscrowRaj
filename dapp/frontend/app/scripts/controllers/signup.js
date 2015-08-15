@@ -23,7 +23,7 @@ angular.module('EscrowRajApp')
         value: '',
         valid: null
     };
-    $scope.address = '<empty>';
+    $scope.address = '';
 
     var checkForNullValues = function (model) {
         if (model.value.trim() === '') {
