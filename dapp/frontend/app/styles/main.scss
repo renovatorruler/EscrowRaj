@@ -5,6 +5,8 @@
 @import "signup";
 @import "login";
 
+$template_blue: #4A90E2;
+
 .browsehappy {
     margin: 0.2em 0;
     background: #ccc;
@@ -14,13 +16,23 @@
 
 body {
     padding: 0;
-    font-family: 'Lato', sans-serif;
 }
 
 a {
+    color: $template_blue;
     &:hover {
         text-decoration: none;
     }
+}
+
+h1, h2, h3, h4, h5, h6 {
+    &.header {
+        color: rgba(0, 0, 0, 0.7);
+    }
+}
+
+.btn {
+    background-color: $template_blue;
 }
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
@@ -110,41 +122,6 @@ a {
     border-bottom: 0px;
 }
 
-$template_blue: #4A90E2;
-
-.navbar-default {
+nav.site-nav {
     background-color: $template_blue;
-    font-size: 16px;
-    font-family: 'Lato', sans-serif;
-    font-weight: 300;
-    .navbar-brand {
-        color: white;
-    }
-    .navbar-nav {
-        float: none;
-        & > .active > a {
-            background-color: white;
-            color: $template_blue;
-        }
-        & > li > a {
-            color: white;
-            &:hover {
-                color: shade(white, 10%);
-            }
-        }
-    }
-    .login-link, .signup-link {
-        float: right;
-    }
-}
-
-[ng-view] {
-    // Establish an 80em container
-    @include container(80em);
-}
-
-form {
-    lable {
-        cursor: pointer;
-    }
 }

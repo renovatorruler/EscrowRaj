@@ -32,7 +32,6 @@ module.exports = function(config) {
       'bower_components/web3/dist/web3.js',
       'bower_components/web3/dist/web3.min.js',
       'bower_components/blockapps-js/api.js',
-      'bower_components/bootstrap/dist/js/bootstrap.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
       "app/scripts/**/*.js",

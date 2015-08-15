@@ -70,4 +70,8 @@ angular
         $location.path('/seller');
         $rootScope.$apply();
     });
+    $rootScope.$on('$viewContentLoaded', function(){
+        //Here your view content is fully loaded !!
+        $('select').material_select();
+    });
   }]);
