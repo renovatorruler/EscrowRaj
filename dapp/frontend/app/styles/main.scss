@@ -17,6 +17,12 @@ body {
     font-family: 'Lato', sans-serif;
 }
 
+a {
+    &:hover {
+        text-decoration: none;
+    }
+}
+
 /* Everything but the jumbotron gets side spacing for mobile first views */
 .header,
 .marketing,
@@ -61,6 +67,10 @@ body {
     .btn {
         font-size: 21px;
         padding: 14px 24px;
+    }
+
+    h1 {
+        font-weight: 300;
     }
 }
 
