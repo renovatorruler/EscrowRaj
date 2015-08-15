@@ -132,3 +132,9 @@ $template_blue: #4A90E2;
     // Establish an 80em container
     @include container(80em);
 }
+
+form {
+    lable {
+        cursor: pointer;
+    }
+}
