@@ -1,0 +1,59 @@
+{
+  "contracts": "dapp/contracts",
+  
+  "transaction": {
+    "gasLimit": 3141592,
+    "gasPrice": 1000
+  },
+  
+  "env": {
+    
+    "block": {
+      "coinbase" : "2adc25665018aa1fe0e6bc666dac8fc2697ff9ba",
+      "difficulty" : "0x0100",
+      "gasLimit" : "100000000000000000000",
+      "number" : "11",
+      "timestamp" : "0xFF"
+    },
+    
+    
+    "accounts": {
+
+      "dedb49385ad5b94a16f236a6890cf9e0b1e30392": {
+        "balance": 1000000000000000000000000000000000000000000000000000000 ,
+        "nonce": "0x1cf",
+        "pkey": "974f963ee4571e86e5f9bc3b493e453db9c15e5bd19829a4ef9a790de0da0015", 
+        "default": true
+      },
+
+
+      "5e0d1ad9d5849c1a5c204dfb58a1e4f390a24337": {
+        "balance": 1000000000000000000000000000000000000000000000000000000 ,
+        "nonce": "0xf",
+        "pkey" : "roman",
+        "default": false
+      },
+
+
+      "cd2a3d9f938e13cd947ec05abc7fe734df8dd826": {
+        "balance": "0x1000000000000000000000000000000000000",
+        "nonce": "1430",
+        "pkey": "cow",
+        "default": false,
+        "storage": {
+          "0x0f": 200010,
+          "01": "0x200001"
+        }
+      },
+
+      
+      
+      "084f6a99003dae6d3906664fdbf43dd09930d0e3": {
+        "balance": 1000000000000000000000000000,
+        "source": "dapp/_pre/name_reg.sol"
+      }
+      
+      
+    }
+  }
+}
