@@ -8,5 +8,9 @@
  * Controller of the EscrowRajApp
  */
 angular.module('EscrowRajApp')
-  .controller('BuyerCtrl', function () {
-  });
+  .controller('BuyerCtrl', ['$scope', function ($scope) {
+      $scope.encKeySecret = '';
+      $scope.sendContract = function () {
+          escrow.createContract($scope.encKeySecret);
+      };
+  }]);

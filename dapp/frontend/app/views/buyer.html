@@ -9,13 +9,19 @@
         <div class="row">
             <div class="input-field col s12">
                 <input id="amount" type="text" class="validate">
-                <label for="amount">Amount</label>
+                <label for="amount">Amount (in ETH)</label>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s12">
                 <textarea id="details" class="materialize-textarea"></textarea>
                 <label for="details">Memo</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <input type="text" placeholder="Encryption Password" ng-model="encKeySecret" id="encrytionPassword"/>
+                <label for="encrytionPassword">Encryption Password</label>
             </div>
         </div>
         <div class="col s12">

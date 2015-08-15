@@ -31,6 +31,6 @@ angular.module('EscrowRajApp')
       var address = userKeyStore.getAddresses()[0];
       var privateKey = userKeyStore.exportPrivateKey(address, encPassword);
       var contract = this.buildContractSource(this.contract);
-      console.log('creating contract', encPassword, nullContract);
+      console.log('creating contract', encPassword, contract);
     }
   }]);

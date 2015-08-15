@@ -28,6 +28,7 @@
     "grunt-usemin": "^3.0.0",
     "grunt-wiredep": "^2.0.0",
     "gulp": "^3.9.0",
+    "gulp-plumber": "^1.0.1",
     "gulp-util": "^3.0.6",
     "gulp-watch": "^4.3.4",
     "jit-grunt": "^0.9.1",
@@ -47,7 +48,7 @@
     "serve": "cd ./dapp/frontend && grunt serve"
   },
   "bloc": {
-    "appName": "EscrowRaj",
+    "appName": "EscrowRaj1",
     "apiURL": "http://hacknet.blockapps.net",
     "metaDest": "./dapp/frontend/app/contracts",
     "developer": "team5",

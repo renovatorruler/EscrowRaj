@@ -9,9 +9,8 @@
  */
 angular.module('EscrowRajApp')
   .controller('SellerCtrl', ['$scope', 'escrow', function ($scope, escrow) {
-
       $scope.encKeySecret = '';
       $scope.sendContract = function () {
-        escrow.createContract($scope.encKeySecret);
+          escrow.createContract($scope.encKeySecret);
       };
   }]);

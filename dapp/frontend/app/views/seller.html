@@ -1,5 +1,8 @@
-<div>
+<div class="row">
   <p>This is the seller view.</p>
-  <input type="text" placeholder="encryption password" ng-model="encKeySecret" />
+  <div class="input-field col s12">
+    <input type="text" placeholder="Encryption Password" ng-model="encKeySecret" id="encrytionPassword"/>
+    <label for="encrytionPassword">Encryption Password</label>
+  </div>
   <button class="btn btn-primary" ng-click="sendContract()">Send Contract</button>
 </div>
