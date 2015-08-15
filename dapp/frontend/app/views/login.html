@@ -1,14 +1,21 @@
+<h1>Login</h1>
 <form class="form-horizontal">
     <div class="form-group" ng-class="{'has-error': email.valid === false}">
-        <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+        <label for="email" class="col-sm-2 control-label">Email</label>
         <div class="col-sm-10">
-            <input type="email" class="form-control" id="inputEmail3" ng-model="email.value" placeholder="Email">
+            <input type="email" class="form-control" id="email" ng-model="email.value" placeholder="Email">
         </div>
     </div>
     <div class="form-group" ng-class="{'has-error': password.valid === false}">
-        <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
+        <label for="password" class="col-sm-2 control-label">Password</label>
         <div class="col-sm-10">
-            <input type="password" class="form-control" id="inputPassword3" ng-model="password.value" placeholder="Password">
+            <input type="password" class="form-control" id="password" ng-model="password.value" placeholder="Password">
+        </div>
+    </div>
+    <div class="form-group" ng-class="{'has-error': address.valid === false}">
+        <label for="address" class="col-sm-2 control-label">Address</label>
+        <div class="col-sm-10">
+            <input type="input" class="form-control" id="address" ng-model="address.value" placeholder="Address">
         </div>
     </div>
     <div class="form-group">
