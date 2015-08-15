@@ -25,16 +25,32 @@
     "grunt-svgmin": "^2.0.0",
     "grunt-usemin": "^3.0.0",
     "grunt-wiredep": "^2.0.0",
+    "gulp-util": "^3.0.6",
     "jit-grunt": "^0.9.1",
     "jshint-stylish": "^1.0.0",
     "karma-jasmine": "*",
     "karma-phantomjs-launcher": "*",
-    "time-grunt": "^1.0.0"
+    "prompt": "^0.2.14",
+    "time-grunt": "^1.0.0",
+    "yargs": "^3.19.0",
+
+    "blockapps-js": "git+https://github.com/JoshKaufman/blockapps-js.git",
+    "bloc": "git+https://github.com/JoshKaufman/bloc.git",
+    "gulp": "^3.9.0",
+    "gulp-watch": "^4.3.4"
   },
   "engines": {
     "node": ">=0.10.0"
   },
   "scripts": {
-    "test": "grunt test"
+    "test": "cd ./dapp/frontend && grunt test",
+    "serve": "cd ./dapp/frontend && grunt serve"
+  },
+  "bloc": {
+    "appName": "required!!!",
+    "apiURL": "http://hacknet.blockapps.net",
+    "metaDest": "./dapp/frontend/contracts",
+    "developer": "team5",
+    "email": "shiakaufman+bloc@gmail.com"
   }
 }

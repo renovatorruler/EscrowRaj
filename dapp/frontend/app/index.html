@@ -70,15 +70,23 @@
     <script src="bower_components/crypto-js/index.js"></script>
     <script src="bower_components/web3/dist/web3.js"></script>
     <script src="bower_components/web3/dist/web3.min.js"></script>
+    <script src="bower_components/blockapps-js/api.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
-        <!-- build:js({.tmp,app}) scripts/scripts.js -->
-        <script src="scripts/app.js"></script>
-        <script src="scripts/controllers/main.js"></script>
-        <script src="scripts/controllers/about.js"></script>
-        <script src="scripts/controllers/buyer.js"></script>
-        <script src="scripts/controllers/seller.js"></script>
-        <!-- endbuild -->
+
+    <!-- stolen from blockapps -->
+    <script src="http://hacknet.blockapps.net/static/ethlightjs.min.js"></script>
+    <script src="http://hacknet.blockapps.net/static/js/userLogin.js"></script>
+    <script src="http://hacknet.blockapps.net/static/js/createUser.js"></script>
+    <!-- end stolen goods -->
+
+    <!-- build:js({.tmp,app}) scripts/scripts.js -->
+    <script src="scripts/app.js"></script>
+    <script src="scripts/controllers/main.js"></script>
+    <script src="scripts/controllers/about.js"></script>
+    <script src="scripts/controllers/buyer.js"></script>
+    <script src="scripts/controllers/seller.js"></script>
+    <!-- endbuild -->
 </body>
 </html>
