@@ -18,8 +18,6 @@ angular.module('EscrowRajApp')
       return !!this.user;
     };
 
-    this.authenticate = function (address){};
-
     this.register = function(user, keyStore) {
         submitUser({
             email: user.email,
