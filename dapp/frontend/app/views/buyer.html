@@ -1,9 +1,13 @@
 <div class="row">
     <form class="col s12">
         <div class="row">
-            <div class="input-field col s12">
+            <div class="input-field col s8">
                 <input id="seller" type="text" class="validate" ng-model="sellerAddress">
                 <label for="seller" ng-class="{'active': sellerAddress}">Seller's Address</label>
+            </div>
+            <div class="input-field col s4">
+                Prefill Addresses: 
+                <a ng-click="loadSeller(address.address)" class="prefill-link" ng-repeat="address in preFillAddresses">{{address.name}}</a>
             </div>
         </div>
         <div class="row">
@@ -20,7 +24,7 @@
         </div>
         <div class="row">
             <div class="input-field col s12">
-                <input type="text" placeholder="Encryption Password" ng-model="encKeySecret" id="encrytionPassword"/>
+                <input type="text" ng-model="encKeySecret" id="encrytionPassword"/>
                 <label for="encrytionPassword" ng-class="{'active': encKeySecret}">Encryption Password</label>
             </div>
         </div>

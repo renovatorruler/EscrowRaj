@@ -9,11 +9,19 @@
  */
 angular.module('EscrowRajApp')
   .controller('BuyerCtrl', ['$scope', '$location', 'escrow', function ($scope, $location, escrow) {
-      $scope.encKeySecret = 'loverboy';
-      $scope.sellerAddress = '46fa4c2d60305df40a74b8cbc04773d9bd5ad295';
+      $scope.preFillAddresses = [
+        {name: 'Kevin', address: '46fa4c2d60305df40a74b8cbc04773d9bd5ad295'},
+        {name: 'Josh', address: '041e0f42d6efddc7beab4143b30730dbe834f299'}
+      ];
+      $scope.encKeySecret = '';
+      $scope.sellerAddress = '';
       $scope.etherAmount = 1;
       $scope.gasPrice = 100;
-      $scope.memo = 'For Bar Mitzvah';
+      $scope.memo = '';
+
+      $scope.loadSeller = function (address) {
+          $scope.sellerAddress = address;
+      };
 
       $scope.sendContract = function () {
           $scope.inprogress = true;

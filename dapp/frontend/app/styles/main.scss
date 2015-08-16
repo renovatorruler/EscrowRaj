@@ -126,3 +126,13 @@ h1, h2, h3, h4, h5, h6 {
 nav.site-nav {
     background-color: $template_blue;
 }
+
+.prefill-link {
+    cursor: pointer;
+    &:after {
+        content: ', '
+    }
+    &:last-child:after {
+        content: ''
+    }
+}
