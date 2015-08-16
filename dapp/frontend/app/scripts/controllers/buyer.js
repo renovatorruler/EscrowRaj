@@ -11,8 +11,8 @@ angular.module('EscrowRajApp')
   .controller('BuyerCtrl', ['$scope', 'escrow', function ($scope, escrow) {
       $scope.encKeySecret = 'loverboy';
       $scope.sellerAddress = '46fa4c2d60305df40a74b8cbc04773d9bd5ad295';
-      $scope.etherAmount = 50000;
-      $scope.gasPrice = 10000;
+      $scope.etherAmount = 1;
+      $scope.gasPrice = 100;
       $scope.memo = 'For Bar Mitzvah';
 
       $scope.sendContract = function () {

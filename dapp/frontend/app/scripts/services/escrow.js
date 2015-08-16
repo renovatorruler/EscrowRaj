@@ -48,7 +48,7 @@ angular.module('EscrowRajApp')
           value: parseInt(contractOptions.etherAmount),
           fromAccount: blockapi.Contract({privkey: privateKey}),
           gasPrice: parseInt(contractOptions.gasPrice),
-          gasLimit: 200000
+          gasLimit: 2000000
         };
         contract.submit(options, function(contract){
             var callback = function(){};

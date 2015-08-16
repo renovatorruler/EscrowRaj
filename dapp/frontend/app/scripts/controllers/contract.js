@@ -8,5 +8,7 @@
  * Controller of the EscrowRajApp
  */
 angular.module('EscrowRajApp')
-  .controller('ContractCtrl', function ($scope) {
-  });
+  .controller('ContractCtrl', ['$scope', '$routeParams', function ($scope, $routeParams) {
+      $scope.contractAddress = $routeParams.contractAddress;
+      console.debug($routeParams);
+  }]);
