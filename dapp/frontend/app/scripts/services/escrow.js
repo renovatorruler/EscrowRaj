@@ -75,13 +75,5 @@ angular.module('EscrowRajApp')
             deferred.resolve(contract);
         });
         return deferred.promise;
-        /**
-        var deferred = $q.defer();
-        $http.get(apiEndpoint + '/account?address=' + contractAddress).
-            then(function (response) {
-                deferred.resolve(response.data[0]);
-            });
-        return deferred.promise;
-        **/
     };
 }]);

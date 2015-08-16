@@ -13,9 +13,6 @@ angular.module('EscrowRajApp')
         var contract;
         $scope.contract = {};
         $scope.contract.address = $routeParams.contractAddress;
-        var userKeyStore = auth.getUser();
-        var address = userKeyStore.getAddresses()[0];
-        var privateKey = userKeyStore.exportPrivateKey(address, 'loverboy');
 
         var loadContractInfo = function () {
             escrow.getContractInfo($scope.contract.address)
@@ -29,7 +26,10 @@ angular.module('EscrowRajApp')
         };
 
         $scope.releaseFunds = function (amount) {
-            contract.call(window.apiURL, loadContractInfo(), {
+            var userKeyStore = auth.getUser();
+            var address = userKeyStore.getAddresses()[0];
+            var privateKey = userKeyStore.exportPrivateKey(address, $scope.passphrase);
+            contract.call(window.apiURL, loadContractInfo, {
                 funcName: 'release',
                 value: 0,
                 fromAccount: blockapi.Contract({privkey: privateKey}),

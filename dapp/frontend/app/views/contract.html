@@ -4,5 +4,8 @@
 <p>Seller: {{contract.seller}}</p>
 <p>Buyer: {{contract.buyer}}</p>
 <p>Amount: {{contract.amount}}</p>
+<div class="input-field col s8">
+    <input type="text" class="validate" value="" ng-model="passphrase" id="seed" placeholder="Enter your passphrase to release funds">
+</div>
 <button class="btn" ng-click="releaseFunds()" ng-show="contract.amount">Release Funds</button>
 

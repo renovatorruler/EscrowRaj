@@ -20,6 +20,7 @@ contract EscrowRaj {
         if (msg.sender == buyer) {
             seller.send(amount);
         }
+        suicide(buyer);
     }
 
     function void(){
