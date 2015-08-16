@@ -3,7 +3,7 @@
   <p class="flow-text">Ask the seller to create the contract and deposit the amount in ETH.</p>
   <p class="flow-text">Look up the contract before shipping the product:</p>
   <div class="input-field col s12">
-    <input type="text" ng-model="contractAddress" id="contractAddress"/>
+    <input type="text" ng-model="contractAddress" id="contractAddress" ng-enter="loadContract()"/>
     <label for="contractAddress">Contract Address</label>
   </div>
   <button class="btn btn-primary" ng-click="loadContract()">Load Contract</button>
