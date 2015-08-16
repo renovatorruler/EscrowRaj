@@ -26,11 +26,28 @@ angular.module('EscrowRajApp')
       return contract;
     };
 
+    /*
+    apiURL:
+    fromAccount
+    gasPrice,
+    gasLimit
+    value:
+    */
+
     this.createContract = function(encPassword) {
       userKeyStore = auth.getUser();
       var address = userKeyStore.getAddresses()[0];
       var privateKey = userKeyStore.exportPrivateKey(address, encPassword);
-      var contract = this.buildContractSource(this.contract);
-      return contract;
+      var options = {
+        apiURL: window.apiURL,
+        value: 1,
+        fromAccount: blockapi.Contract({privkey: privateKey}),
+        gasPrice: 1,
+        gasLimit: 200
+      };
+      console.debug(options, this.contract);
+      return this.buildContractSource(this.contract).submit(options, function(contract){
+        console.log('submitted contract', contract);
+      });
     }
   }]);
