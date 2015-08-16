@@ -29,16 +29,15 @@
                 <button class="btn btn-primary" ng-click="sendContract()">Send Contract</button>
             </div>
         </div>
-        <div class="row">
+        <div class="row" ng-show="contractAddress">
             <div class="card-panel">
-                <a ng-href="#/contract/{{contractAddress}}">
-                    <div class="blue-text">
-                        Address: {{contractAddress}}
-                    </div>
-                    <div class="blue-text">
-                        Balance: {{contractBalance}}
-                    </div>
-                </a>
+                <div class="blue-text">
+                    Address: {{contractAddress}}
+                </div>
+                <div class="blue-text">
+                    Balance: {{contractBalance}}
+                </div>
+                <a ng-href="#/contract/{{contractAddress}}" class="btn">Proceed to next Step</a>
             </div>
         </div>
     </form>
