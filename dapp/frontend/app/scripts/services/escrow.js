@@ -9,6 +9,7 @@
  */
 angular.module('EscrowRajApp')
   .service('escrow', ['$http', 'auth', '$q', function ($http, auth, $q) {
+    var apiEndpoint = window.apiURL + '/eth/v1.0';
     var userKeyStore;
     var blockapi = window.blockapi;
     this.contract = null;
@@ -62,6 +63,15 @@ angular.module('EscrowRajApp')
             // console.log('submitted contract', contract);
             deferred.resolve(contract);
         });
+        return deferred.promise;
+    };
+
+    this.getContractInfo = function (contractAddress) {
+        var deferred = $q.defer();
+        $http.get(apiEndpoint + '/account?address=' + contractAddress).
+            then(function (response) {
+                deferred.resolve(response.data[0]);
+            });
         return deferred.promise;
     };
 }]);
