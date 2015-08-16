@@ -31,12 +31,14 @@
         </div>
         <div class="row">
             <div class="card-panel">
-                <div class="blue-text">
-                    Address: {{contractAddress}}
-                </div>
-                <div class="blue-text">
-                    Balance: {{contractBalance}}
-                </div>
+                <a ng-href="#/contract/{{contractAddress}}">
+                    <div class="blue-text">
+                        Address: {{contractAddress}}
+                    </div>
+                    <div class="blue-text">
+                        Balance: {{contractBalance}}
+                    </div>
+                </a>
             </div>
         </div>
     </form>

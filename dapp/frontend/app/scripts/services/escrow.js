@@ -47,11 +47,10 @@ angular.module('EscrowRajApp')
             apiURL: window.apiURL,
             value: 1,
             fromAccount: blockapi.Contract({privkey: privateKey}),
-            gasPrice: 1,
-            gasLimit: 200
+            gasPrice: 100,
+            gasLimit: 2000000
         };
         contract.submit(options, function(contract){
-            console.log('submitted contract', contract);
             deferred.resolve(contract);
         });
         return deferred.promise;
