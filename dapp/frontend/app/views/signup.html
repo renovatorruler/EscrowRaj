@@ -38,6 +38,7 @@
         </div>
         <div class="row">
             <div class="input-field col s12 tooltipped" ng-class="{'has-error': encPassword.valid === false}" data-position="top" data-delay="50" data-tooltip="Your need to enter this password before performing any transaction on the network.">
+                <input type="password" class="validate" ng-model="encPassword.value" id="encryptionPassword">
                 <label for="encryptionPassword">Encryption Password</label>
             </div>
         </div>
