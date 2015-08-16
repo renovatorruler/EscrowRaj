@@ -20,10 +20,10 @@ angular.module('EscrowRajApp')
       }).bind(this));
 
     this.buildContractSource = function (source) {
-      var contract = blockapi.Solidity('');
-      contract.vmCode = source.vmCode;
-      contract.symtab = source.symtab;
-      return contract;
+        var contract = blockapi.Solidity('');
+        contract.vmCode = source.vmCode;
+        contract.symtab = source.symtab;
+        return contract;
     };
 
     /*
@@ -35,19 +35,22 @@ angular.module('EscrowRajApp')
     */
 
     this.createContract = function(encPassword) {
+      return this.buildContractSource(this.contract)
+    }
+
+    this.submitContract = function(contract, encPassword) {
       userKeyStore = auth.getUser();
       var address = userKeyStore.getAddresses()[0];
       var privateKey = userKeyStore.exportPrivateKey(address, encPassword);
-      var options = {
-        apiURL: window.apiURL,
-        value: 1,
-        fromAccount: blockapi.Contract({privkey: privateKey}),
-        gasPrice: 1,
-        gasLimit: 200
-      };
-      console.debug(options, this.contract);
-      return this.buildContractSource(this.contract).submit(options, function(contract){
-        console.log('submitted contract', contract);
-      });
-    }
+        var options = {
+            apiURL: window.apiURL,
+            value: 1,
+            fromAccount: blockapi.Contract({privkey: privateKey}),
+            gasPrice: 1,
+            gasLimit: 200
+        };
+        contract.submit(options, function(contract){
+            console.log('submitted contract', contract);
+        });
+    };
   }]);

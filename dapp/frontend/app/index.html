@@ -45,6 +45,7 @@
             <ul class="right hide-on-med-and-down">
                 <li class="login-link" ng-hide="authenticated"><a ng-href="#/login">Login</a></li>
                 <li class="signup-link" ng-hide="authenticated"><a ng-href="#/signup">Signup</a></li>
+                <li class="balance" ng-show="authenticated">{{accountBalance}}</li>
             </ul>
 
             <ul id="nav-mobile" class="side-nav">

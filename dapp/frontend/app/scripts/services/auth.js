@@ -9,7 +9,7 @@
  */
 angular.module('EscrowRajApp')
   .service('auth', ['$http', '$q', '$rootScope', function ($http, $q, $rootScope) {
-    var apiEndpoint = window.apiURL;
+    var apiEndpoint = window.apiURL + '/eth/v1.0';
     var ethlightjs = window.ethlightjs;
     var localSession = sessionStorage.getItem('user');
     this.user = localSession ? ethlightjs.keystore.deserialize(localSession) : '';
@@ -23,6 +23,13 @@ angular.module('EscrowRajApp')
         return this.user;
     };
 
+    this.getBalance = function () {
+        $http.get(apiEndpoint + '/account?address=' + this.user.addresses[0])
+        .then(function (response) {
+            $rootScope.accountBalance = response.data[0].balance;
+        });
+    };
+
     this.register = function(user, keyStore) {
         submitUser({
             email: user.email,
@@ -32,6 +39,10 @@ angular.module('EscrowRajApp')
             enckey: keyStore.serialize()
         }, (function(response){
             this.user = response;
+            var faucetOptions = {
+                address: this.user.addresses[0] 
+            };
+            $http.post(apiEndpoint + '/faucet', faucetOptions);
         }).bind(this));
     };
 
@@ -47,6 +58,7 @@ angular.module('EscrowRajApp')
             this.user = response;
             sessionStorage.setItem('user', this.user.serialize());
             $rootScope.$broadcast('user:authenticated');
+            this.getBalance();
             deferred.resolve(response);
         }).bind(this));
         return deferred.promise;
@@ -54,4 +66,7 @@ angular.module('EscrowRajApp')
 
     this.loadAccountInfo = function() {};
 
+    if(this.isAuthenticated()) {
+        this.getBalance();
+    }
   }]);

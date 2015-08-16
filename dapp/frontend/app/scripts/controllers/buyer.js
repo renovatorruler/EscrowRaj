@@ -15,6 +15,8 @@ angular.module('EscrowRajApp')
       $scope.memo = 'For Bar Mitzvah';
 
       $scope.sendContract = function () {
-          console.debug(escrow.createContract($scope.encKeySecret));
+          var contract = escrow.createContract($scope.encKeySecret);
+          escrow.submitContract(contract, $scope.encKeySecret);
+          $scope.contractBalance = escrow.getContractBalance(contract);
       };
   }]);
