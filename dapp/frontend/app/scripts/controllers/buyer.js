@@ -9,7 +9,7 @@
  */
 angular.module('EscrowRajApp')
   .controller('BuyerCtrl', ['$scope', 'escrow', function ($scope, escrow) {
-      $scope.encKeySecret = '';
+      $scope.encKeySecret = 'loverboy';
       $scope.sellerAddress = '46fa4c2d60305df40a74b8cbc04773d9bd5ad295';
       $scope.etherAmount = '0.5';
       $scope.memo = 'For Bar Mitzvah';
