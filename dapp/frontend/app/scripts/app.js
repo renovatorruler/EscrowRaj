@@ -50,6 +50,10 @@ angular
         templateUrl: 'views/signup.html',
         controller: 'SignupCtrl'
       })
+      .when('/contract/:contractAddress', {
+        templateUrl: 'views/contract.html',
+        controller: 'ContractCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });

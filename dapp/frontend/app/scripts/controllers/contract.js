@@ -2,11 +2,11 @@
 
 /**
  * @ngdoc function
- * @name EscrowRajApp.controller:MainCtrl
+ * @name EscrowRajApp.controller:ContractCtrl
  * @description
- * # MainCtrl
+ * # ContractCtrl
  * Controller of the EscrowRajApp
  */
 angular.module('EscrowRajApp')
-  .controller('MainCtrl', function () {
+  .controller('ContractCtrl', function ($scope) {
   });
