@@ -1,0 +1,5 @@
+TODO:
+fix login/signup balance issue
+Clear default values
+Releasing funds isn't working
+
