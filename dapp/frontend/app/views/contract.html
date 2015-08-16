@@ -1,11 +1,17 @@
 <h3>Contract Details</h3>
 <p>Address: {{contract.address}}</p>
-<p>Balance: {{contract.balance}}</p>
-<p>Seller: {{contract.seller}}</p>
-<p>Buyer: {{contract.buyer}}</p>
-<p>Amount: {{contract.amount}}</p>
-<div class="input-field col s8">
-    <input type="text" class="validate" value="" ng-model="passphrase" id="seed" placeholder="Enter your passphrase to release funds">
+<div ng-show="contract.amount">
+    <p>Balance: {{contract.balance}}</p>
+    <p>Seller: {{contract.seller}}</p>
+    <p>Buyer: {{contract.buyer}}</p>
+    <p>Amount: {{contract.amount}}</p>
+    <div class="control-panel" ng-show="authenticated">
+        <div class="input-field col s8">
+            <input type="text" class="validate" value="" ng-model="passphrase" id="seed" placeholder="Enter your passphrase to release funds">
+        </div>
+        <button class="btn" ng-click="releaseFunds()" ng-show="contract.balance">Release Funds</button>
+    </div>
 </div>
-<button class="btn" ng-click="releaseFunds()" ng-show="contract.amount">Release Funds</button>
-
+<div ng-hide="contract.amount">
+    <p>Contract does not exist</p>
+</div>
