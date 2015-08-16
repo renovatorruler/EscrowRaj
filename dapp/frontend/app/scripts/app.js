@@ -54,6 +54,10 @@ angular
         templateUrl: 'views/contract.html',
         controller: 'ContractCtrl'
       })
+      .when('/arbitrators', {
+        templateUrl: 'views/arbitrators.html',
+        controller: 'ArbitratorsCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });
@@ -78,4 +82,8 @@ angular
         //Here your view content is fully loaded !!
         $('select').material_select();
     });
+  }])
+  .config(['$httpProvider', function($httpProvider) {
+    $httpProvider.defaults.useXDomain = true;
+    delete $httpProvider.defaults.headers.common['X-Requested-With'];
   }]);

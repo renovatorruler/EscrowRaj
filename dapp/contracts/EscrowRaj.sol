@@ -19,8 +19,8 @@ contract EscrowRaj {
         //Only allow buyer to release the funds
         if (msg.sender == buyer) {
             seller.send(amount);
+            suicide(buyer);
         }
-        suicide(buyer);
     }
 
     function void(){
