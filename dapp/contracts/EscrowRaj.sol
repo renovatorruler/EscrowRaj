@@ -5,6 +5,7 @@ contract EscrowRaj {
     bool public locked;
     address arbitrator;
     uint timeout;
+    string memo;
 
     struct Buyer {
         address account;
@@ -16,10 +17,11 @@ contract EscrowRaj {
         address choice;
     }
 
-    function EscrowRaj(uint myvalue, address buyerAddr) {
-        buyer.account = buyerAddr;
+    function EscrowRaj(uint myvalue, string myMemo) {
+        buyer.account = msg.sender;
         value = myvalue;
         locked = false;
+        memo = myMemo;
     }
 
     function setSeller(address sellerAddress) {
@@ -68,8 +70,6 @@ contract EscrowRaj {
             arbitrator = buyer.choice;
         }
     }
-
-
 
     function judge(bool fulfilled){ //True means contract was fulfilled, money released to seller
         if (msg.sender == arbitrator && locked){
