@@ -52,8 +52,10 @@
             <ul id="nav-mobile" class="side-nav">
                 <li><a ng-href="#/seller">Seller</a></li>
                 <li><a ng-href="#/buyer">Buyer</a></li>
+                <li><a ng-href="#/arbitrators" class="waves-effect waves-light">Arbitrators</a></li>
                 <li class="login-link" ng-hide="authenticated"><a ng-href="#/login">Login</a></li>
                 <li class="signup-link" ng-hide="authenticated"><a ng-href="#/signup">Signup</a></li>
+                <li class="balance" ng-show="authenticated">{{accountBalance}}</li>
             </ul>
             <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
         </div>

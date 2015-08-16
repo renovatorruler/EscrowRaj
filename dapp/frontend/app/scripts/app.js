@@ -62,7 +62,7 @@ angular
         redirectTo: '/'
       });
   })
-  .run(['$rootScope','$location', 'auth', function($rootScope, $location, auth){
+  .run(['$rootScope', '$location', 'auth', function($rootScope, $location, auth){
     $rootScope.$on('$routeChangeStart', function(event, next) {
         if(next.access && next.access.requiresLogin) {
             if (!auth.isAuthenticated()) {
@@ -80,7 +80,7 @@ angular
     });
     $rootScope.$on('$viewContentLoaded', function(){
         //Here your view content is fully loaded !!
-        $('select').material_select();
+          $(".button-collapse").sideNav();
     });
   }])
   .config(['$httpProvider', function($httpProvider) {
