@@ -28,8 +28,15 @@
             <div class="col s6">
                 <button class="btn btn-primary" ng-click="sendContract()">Send Contract</button>
             </div>
-            <div class="col s6">
-                {{contractBalance}}
+        </div>
+        <div class="row">
+            <div class="card-panel">
+                <div class="blue-text">
+                    Address: {{contractAddress}}
+                </div>
+                <div class="blue-text">
+                    Balance: {{contractBalance}}
+                </div>
             </div>
         </div>
     </form>

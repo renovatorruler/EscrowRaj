@@ -8,7 +8,7 @@
  * Service in the EscrowRajApp.
  */
 angular.module('EscrowRajApp')
-  .service('escrow', ['$http', 'auth', function ($http, auth) {
+  .service('escrow', ['$http', 'auth', '$q', function ($http, auth, $q) {
     var userKeyStore;
     var blockapi = window.blockapi;
     this.contract = null;
@@ -39,9 +39,10 @@ angular.module('EscrowRajApp')
     }
 
     this.submitContract = function(contract, encPassword) {
-      userKeyStore = auth.getUser();
-      var address = userKeyStore.getAddresses()[0];
-      var privateKey = userKeyStore.exportPrivateKey(address, encPassword);
+        var deferred = $q.defer();
+        userKeyStore = auth.getUser();
+        var address = userKeyStore.getAddresses()[0];
+        var privateKey = userKeyStore.exportPrivateKey(address, encPassword);
         var options = {
             apiURL: window.apiURL,
             value: 1,
@@ -51,6 +52,12 @@ angular.module('EscrowRajApp')
         };
         contract.submit(options, function(contract){
             console.log('submitted contract', contract);
+            deferred.resolve(contract);
         });
+        return deferred.promise;
+    };
+
+    this.getContractBalance = function (contract) {
+        
     };
   }]);
