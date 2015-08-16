@@ -23,6 +23,17 @@ angular.module('EscrowRajApp')
         return this.user;
     };
 
+    this.getUserAddress = function () {
+      return this.user.addresses()[0];
+    };
+
+    this.getUserPrivateKey = function(encPassword) {
+      return this.user.exportPrivateKey(
+        this.getUserAddress(),
+        encPassword
+      );
+    };
+
     this.getBalance = function () {
         $http.get(apiEndpoint + '/account?address=' + this.user.addresses[0])
         .then(function (response) {
@@ -39,10 +50,9 @@ angular.module('EscrowRajApp')
             enckey: keyStore.serialize()
         }, (function(response){
             this.user = response;
-            var faucetOptions = {
-                address: this.user.address.address 
-            };
-            $http.post(apiEndpoint + '/faucet', faucetOptions);
+            $http.post(apiEndpoint + '/faucet', {
+                address: this.user.address.address
+            });
         }).bind(this));
     };
 
