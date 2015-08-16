@@ -20,11 +20,13 @@ function compileSol (file) {
 		if(compiledCode.vmCode === undefined) {
 			gutil.warn('error compiling ', filename);
 		}
-		var dest = path.normalize(path.join(blocConf.metaDest, filePath.name + '.json'));
-		fs.writeFileSync(dest, JSON.stringify({
+		var dest = path.normalize(path.join(blocConf.metaDest, filePath.name + '.js'));
+                var js_file = JSON.stringify({
                     "vmCode" : compiledCode.vmCode,
                     "symtab" : compiledCode.symtab
-                }));
+                });
+                js_file = "var " + filePath.name + " = " + js_file  + ";";
+		fs.writeFileSync(dest, js_file);
 	});
 }
 

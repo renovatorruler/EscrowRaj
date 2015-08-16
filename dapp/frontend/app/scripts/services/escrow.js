@@ -14,11 +14,7 @@ angular.module('EscrowRajApp')
     var blockapi = window.blockapi;
     this.contract = null;
 
-    $http
-      .get('/contracts/EscrowRaj.json')
-      .then((function(res){
-        this.contract = res.data;
-      }).bind(this));
+    this.contract = window.EscrowRaj;
 
     this.buildContractSource = function (source) {
         var contract = blockapi.Solidity('');
@@ -54,16 +50,16 @@ angular.module('EscrowRajApp')
         contract.submit(options, function(contract){
             var callback = function(response){
               console.log(response, 'value set');
-              debugger;
             };
             contract.call(apiURL, callback, {
-              funcName: 'setSeller',
+              funcName: 'setSellerAndAmt',
               value: parseInt(contractOptions.etherAmount),
               fromAccount: blockapi.Contract({privkey: privateKey}),
               gasPrice: parseInt(contractOptions.gasPrice),
               gasLimit: 200000,
             }, {
-              sellerAddress: contractOptions.sellerAddress
+              sellerAddress: contractOptions.sellerAddress,
+              amt: contractOptions.etherAmount
             })
             //contract.call.setSeller(contractOptions.sellerAddress);
             console.log('submitted contract', contract);
@@ -74,10 +70,18 @@ angular.module('EscrowRajApp')
 
     this.getContractInfo = function (contractAddress) {
         var deferred = $q.defer();
+        var contract = blockapi.Contract({address: contractAddress, symtab: this.contract.symtab})
+        contract.sync(window.apiURL, function() {
+            deferred.resolve(contract);
+        });
+        return deferred.promise;
+        /**
+        var deferred = $q.defer();
         $http.get(apiEndpoint + '/account?address=' + contractAddress).
             then(function (response) {
                 deferred.resolve(response.data[0]);
             });
         return deferred.promise;
+        **/
     };
 }]);

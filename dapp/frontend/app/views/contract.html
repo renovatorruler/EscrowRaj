@@ -1,4 +1,8 @@
 <h3>Contract Details</h3>
 <p>Address: {{contract.address}}</p>
 <p>Balance: {{contract.balance}}</p>
+<p>Seller: {{contract.seller}}</p>
+<p>Buyer: {{contract.buyer}}</p>
+<p>Amount: {{contract.amount}}</p>
+<button class="btn" ng-click="releaseFunds()" ng-show="contract.amount">Release Funds</button>
 
