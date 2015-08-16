@@ -71,7 +71,8 @@ angular
             }
         }
     });
-    $rootScope.$on('user:authenticated', function (event) {
+    $rootScope.$on('user:authenticated', function (event, data) {
+        $rootScope.authenticated = true;
         if(!$rootScope.preLoginLocation) {
             $rootScope.preLoginLocation = '/';
         }
