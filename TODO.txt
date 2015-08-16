@@ -2,4 +2,6 @@ TODO:
 fix login/signup balance issue
 Clear default values
 Releasing funds isn't working
+Failure and Error messages
+Arbitrator pages
 
