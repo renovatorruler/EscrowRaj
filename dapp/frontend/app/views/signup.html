@@ -1,38 +1,51 @@
+<div class="col s12 offset-m2 l6 offset-l3">
+        <div class="card-panel lighten-5 z-index-1">
+          <div class="row valign-wrapper">
+            <div class="col s2">
+                <a href="http://blockapps.net/" target="_blank"><img src="http://hacknet.blockapps.net/static/images/logo.png" alt="" class="responsive-img"></a>
+            </div>
+            <div class="col s10">
+              <span class="black-text">
+                  EscrowRaj is powered by <a href="http://blockapps.net/" target="_blank">BlockApps</a>. EscrowRaj also runs on a Test network. Your testnet wallet will be generated locally, but encrypted and stored at BlockApps servers.
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
 <h2 class="header">Signup</h2>
 <div class="row">
     <form class="col s12">
         <div class="row">
-            <div class="input-field col s12" ng-class="{'has-error': email.valid === false}">
+            <div class="input-field col s12 tooltipped" data-position="top" data-delay="50" data-tooltip="Your email address for BlockApps signup" ng-class="{'has-error': email.valid === false}">
                 <input type="email" class="validate" id="email" ng-model="email.value">
                 <label for="email">Email</label>
             </div>
         </div>
         <div class="row">
-            <div class="input-field col s12" ng-class="{'has-error': loginPassword.valid === false}">
+            <div class="input-field col s12 tooltipped" data-position="top" data-delay="50" data-tooltip="Only used for BlockApps authentication" ng-class="{'has-error': loginPassword.valid === false}">
                 <input type="password" class="validate" ng-model="loginPassword.value" id="loginPassword">
-                <label for="loginPassword">Password for authentication</label>
+                <label for="loginPassword">Password</label>
             </div>
         </div>
         <div class="row">
-            <div class="input-field col s8">
+            <div class="input-field col s9 tooltipped" data-position="top" data-delay="50" data-tooltip="Please write down this seed, it can be used to recover your private key.">
                 <input type="text" class="validate" value="" ng-model="seed" id="seed">
-                <label for="seed" ng-class="{'active': seed}">12 word seed</label>
+                <label for="seed" ng-class="{'active': seed}">12 word mnemonic seed</label>
             </div>
-            <div class="input-field col s4">
-                <input type="checkbox" id="randomSeed" value="option1" aria-label="..." ng-model="randomizeSeedOption" ng-change="randomizeSeed()">
-                <label for="randomSeed">Randomly generate</label>
+            <div class="input-field col s3">
+                <button ng-click="randomizeSeed()" class="btn" >Randomize</button>
             </div>
         </div>
         <div class="row">
-            <div class="input-field col s12" ng-class="{'has-error': encPassword.valid === false}">
+            <div class="input-field col s12 tooltipped" ng-class="{'has-error': encPassword.valid === false}" data-position="top" data-delay="50" data-tooltip="Your need to enter this password before performing any transaction on the network.">
                 <input type="password" class="validate" ng-model="encPassword.value" id="encryptionPassword">
                 <label for="encryptionPassword">Encryption Password</label>
             </div>
         </div>
         <div class="row">
-            <div class="input-field col s12">
+            <div class="input-field col s12" ng-show="address">
                 <input disabled type="text" id="address" class="value" ng-model="address" ng-show="address">
-                <label for="address" class="active">Address</label>
+                <label for="address" class="active">Wallet Address</label>
             </div>
         </div>
         <div class="row">

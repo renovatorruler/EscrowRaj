@@ -40,7 +40,7 @@ angular.module('EscrowRajApp')
         }, (function(response){
             this.user = response;
             var faucetOptions = {
-                address: this.user.addresses[0] 
+                address: this.user.address.address 
             };
             $http.post(apiEndpoint + '/faucet', faucetOptions);
         }).bind(this));

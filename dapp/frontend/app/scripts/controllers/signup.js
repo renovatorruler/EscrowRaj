@@ -66,10 +66,8 @@ angular.module('EscrowRajApp')
     };
 
     $scope.randomizeSeed = function () {
-        if($scope.randomizeSeedOption) {
-            $scope.seed = ethlightjs.keystore.generateRandomSeed();
-        } else {
-            $scope.seed = '';
-        }
+        $scope.seed = ethlightjs.keystore.generateRandomSeed();
     };
+
+    $scope.randomizeSeed();
   }]);

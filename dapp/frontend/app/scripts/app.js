@@ -82,6 +82,7 @@ angular
     $rootScope.$on('$viewContentLoaded', function(){
         //Here your view content is fully loaded !!
           $(".button-collapse").sideNav();
+          $('.tooltipped').tooltip({delay: 100});
     });
   }])
   .config(['$httpProvider', function($httpProvider) {

@@ -73,7 +73,7 @@ module.exports = function (grunt) {
         options: {
             base: '<%= yeoman.dist %>'
         },
-        src: ['**']
+        src: ['**/*']
     },
 
     // The actual grunt server settings
@@ -404,7 +404,8 @@ module.exports = function (grunt) {
             '.htaccess',
             '*.html',
             'images/{,*/}*.{webp}',
-            'styles/fonts/{,*/}*.*'
+            'styles/fonts/{,*/}*.*',
+            'data/{,*/}*.*'
           ]
         }, {
           expand: true,
