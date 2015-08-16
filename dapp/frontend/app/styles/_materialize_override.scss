@@ -19,3 +19,11 @@
     }
 }
 
+
+.side-nav li {
+    color: black;
+    &:hover, &.active {
+        color: white;
+        background-color: $template_blue;
+    }
+}

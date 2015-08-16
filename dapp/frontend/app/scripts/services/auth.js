@@ -26,7 +26,11 @@ angular.module('EscrowRajApp')
     this.getBalance = function () {
         $http.get(apiEndpoint + '/account?address=' + this.user.addresses[0])
         .then(function (response) {
-            $rootScope.accountBalance = web3.fromWei(response.data[0].balance, 'ether');
+            if(response.data.length) {
+                $rootScope.accountBalance = web3.fromWei(response.data[0].balance, 'ether');
+            } else {
+                $rootScope.accountBalance = 0;
+            }
         });
     };
 
