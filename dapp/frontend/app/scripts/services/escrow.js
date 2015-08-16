@@ -38,25 +38,30 @@ angular.module('EscrowRajApp')
       return this.buildContractSource(this.contract)
     }
 
-    this.submitContract = function(contract, encPassword) {
+    this.submitContract = function(contract, contractOptions, encPassword) {
         var deferred = $q.defer();
         userKeyStore = auth.getUser();
         var address = userKeyStore.getAddresses()[0];
         var privateKey = userKeyStore.exportPrivateKey(address, encPassword);
         var options = {
-            apiURL: window.apiURL,
-            value: 1,
-            fromAccount: blockapi.Contract({privkey: privateKey}),
-            gasPrice: 100,
-            gasLimit: 2000000
+          apiURL: window.apiURL,
+          value: parseInt(contractOptions.etherAmount),
+          fromAccount: blockapi.Contract({privkey: privateKey}),
+          gasPrice: parseInt(contractOptions.gasPrice),
+          gasLimit: 200000
         };
         contract.submit(options, function(contract){
+            var callback = function(){};
+            // contract.call(apiURL, callback, {
+            //   functionName: 'setSeller',
+            //   fromAccount: blockapi.Contract({privkey: privateKey},
+            //   gasPrice: parseInt(contractValues.gasPrice),
+
+            // })
+            // contract.call.setSeller(contractValues.sellerAddress);
+            // console.log('submitted contract', contract);
             deferred.resolve(contract);
         });
         return deferred.promise;
     };
-
-    this.getContractBalance = function (contract) {
-        
-    };
-  }]);
+}]);
