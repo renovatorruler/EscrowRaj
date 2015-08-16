@@ -1,8 +1,10 @@
 <div class="row">
-  <p>This is the seller view.</p>
+  <!--<p class="flow-text">Sellers currently are unable to create EscrowRaj contracts, only buyers can.</p>-->
+  <p class="flow-text">Ask the seller to create the contract and deposit the amount in ETH.</p>
+  <p class="flow-text">Look up the contract before shipping the product:</p>
   <div class="input-field col s12">
-    <input type="text" placeholder="Encryption Password" ng-model="encKeySecret" id="encrytionPassword"/>
-    <label for="encrytionPassword">Encryption Password</label>
+    <input type="text" ng-model="contractAddress" id="contractAddress"/>
+    <label for="contractAddress">Contract Address</label>
   </div>
-  <button class="btn btn-primary" ng-click="sendContract()">Send Contract</button>
+  <button class="btn btn-primary" ng-click="loadContract()">Load Contract</button>
 </div>
