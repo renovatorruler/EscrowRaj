@@ -38,9 +38,10 @@ angular.module('EscrowRajApp')
             address: user.address,
             enckey: keyStore.serialize()
         }, (function(response){
-            this.user = response;
+            var responseObject = JSON.parse(response);
+            this.user = ethlightjs.keystore.deserialize(responseObject.encryptedWallet);
             var faucetOptions = {
-                address: this.user.address.address 
+                address: this.user.getAddresses()[0]
             };
             $http.post(apiEndpoint + '/faucet', faucetOptions);
         }).bind(this));
