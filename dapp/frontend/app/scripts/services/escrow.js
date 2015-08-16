@@ -52,15 +52,21 @@ angular.module('EscrowRajApp')
           gasLimit: 2000000
         };
         contract.submit(options, function(contract){
-            var callback = function(){};
-            // contract.call(apiURL, callback, {
-            //   functionName: 'setSeller',
-            //   fromAccount: blockapi.Contract({privkey: privateKey},
-            //   gasPrice: parseInt(contractValues.gasPrice),
-
-            // })
-            // contract.call.setSeller(contractValues.sellerAddress);
-            // console.log('submitted contract', contract);
+            var callback = function(response){
+              console.log(response, 'value set');
+              debugger;
+            };
+            contract.call(apiURL, callback, {
+              funcName: 'setSeller',
+              value: parseInt(contractOptions.etherAmount),
+              fromAccount: blockapi.Contract({privkey: privateKey}),
+              gasPrice: parseInt(contractOptions.gasPrice),
+              gasLimit: 200000,
+            }, {
+              sellerAddress: contractOptions.sellerAddress
+            })
+            //contract.call.setSeller(contractOptions.sellerAddress);
+            console.log('submitted contract', contract);
             deferred.resolve(contract);
         });
         return deferred.promise;
