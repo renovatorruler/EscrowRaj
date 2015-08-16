@@ -48,8 +48,8 @@ angular.module('EscrowRajApp')
           gasLimit: 2000000
         };
         contract.submit(options, function(contract){
-            var callback = function(response){
-              console.log(response, 'value set');
+            var callback = function(){
+                deferred.resolve(contract);
             };
             contract.call(apiURL, callback, {
               funcName: 'setSellerAndAmt',
@@ -61,9 +61,6 @@ angular.module('EscrowRajApp')
               sellerAddress: contractOptions.sellerAddress,
               amt: contractOptions.etherAmount
             })
-            //contract.call.setSeller(contractOptions.sellerAddress);
-            console.log('submitted contract', contract);
-            deferred.resolve(contract);
         });
         return deferred.promise;
     };

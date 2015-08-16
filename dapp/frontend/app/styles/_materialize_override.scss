@@ -11,3 +11,10 @@
     border-bottom: 1px solid $template_blue;
     box-shadow: 0 1px 0 0 $template_blue;
 }
+
+.progress {
+    background-color: rgba($template_blue, 0.7);
+    .indeterminate {
+        background-color: $template_blue;
+    }
+}

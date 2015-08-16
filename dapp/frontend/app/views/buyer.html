@@ -25,19 +25,15 @@
             </div>
         </div>
         <div class="row">
-            <div class="col s6">
-                <button class="btn btn-primary" ng-click="sendContract()">Send Contract</button>
-            </div>
-        </div>
-        <div class="row" ng-show="contractAddress">
-            <div class="card-panel">
-                <div class="blue-text">
-                    Address: {{contractAddress}}
-                </div>
-                <div class="blue-text">
-                    Balance: {{contractBalance}}
-                </div>
-                <a ng-href="#/contract/{{contractAddress}}" class="btn">Proceed to next Step</a>
+            <div class="col s12">
+                 <div class="preloader-wrapper active" ng-show="inprogress">
+                     <div class="spinner-layer spinner-blue-only">
+                         <div class="circle-clipper left">
+                             <div class="circle"></div>
+                         </div>
+                     </div>
+                 </div>
+                <button class="btn btn-large waves-effect waves-light" ng-click="sendContract()" ng-hide="inprogress">Send Contract</button>
             </div>
         </div>
     </form>
